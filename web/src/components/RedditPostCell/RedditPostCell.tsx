@@ -1,13 +1,15 @@
-import type { RedditPostsQuery } from 'types/graphql'
+import type {
+  FindRedditPostQuery,
+  FindRedditPostQueryVariables,
+} from 'types/graphql'
 
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 import RedditPost from 'src/components/RedditPost'
-import { Stack } from 'src/styles/Stack/Stack.styled'
 
 export const QUERY = gql`
-  query RedditPostsQuery {
-    redditPosts: posts {
+  query FindRedditPostQuery($id: Int!) {
+    redditPost: post(id: $id) {
       id
       title
       body
@@ -22,18 +24,14 @@ export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => <div>Empty</div>
 
-export const Failure = ({ error }: CellFailureProps) => (
+export const Failure = ({
+  error,
+}: CellFailureProps<FindRedditPostQueryVariables>) => (
   <div style={{ color: 'red' }}>Error: {error?.message}</div>
 )
 
 export const Success = ({
-  redditPosts,
-}: CellSuccessProps<RedditPostsQuery>) => {
-  return (
-    <Stack>
-      {redditPosts.map((item) => (
-        <RedditPost key={item.id} redditPost={item} />
-      ))}
-    </Stack>
-  )
+  redditPost,
+}: CellSuccessProps<FindRedditPostQuery, FindRedditPostQueryVariables>) => {
+  return <RedditPost key={redditPost.id} redditPost={redditPost} />
 }

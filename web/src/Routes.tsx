@@ -23,6 +23,7 @@ const Routes = () => {
         <Route path="/posts" page={PostPostsPage} name="posts" />
       </Set>
       <Set wrap={RedditLayout}>
+        <Route path="/reddit-post/{id:Int}" page={RedditPostPage} name="redditPost" />
         <Route path="/" page={HomePage} name="home" />
       </Set>
       <Route notfound page={NotFoundPage} />
