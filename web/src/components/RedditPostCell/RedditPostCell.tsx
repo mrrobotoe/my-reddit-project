@@ -6,6 +6,7 @@ import type {
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 import RedditPost from 'src/components/RedditPost'
+import { Center } from 'src/styles/Center/Center.styled'
 
 export const QUERY = gql`
   query FindRedditPostQuery($id: Int!) {
@@ -16,6 +17,7 @@ export const QUERY = gql`
       createdAt
       numOfComments
       numOfLikes
+      imageLink
     }
   }
 `
@@ -33,5 +35,9 @@ export const Failure = ({
 export const Success = ({
   redditPost,
 }: CellSuccessProps<FindRedditPostQuery, FindRedditPostQueryVariables>) => {
-  return <RedditPost key={redditPost.id} redditPost={redditPost} />
+  return (
+    <Center $intrinsic={true}>
+      <RedditPost key={redditPost.id} redditPost={redditPost} />
+    </Center>
+  )
 }

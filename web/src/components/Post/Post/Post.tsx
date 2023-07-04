@@ -69,6 +69,10 @@ const Post = ({ post }: Props) => {
               <th>Num of likes</th>
               <td>{post.numOfLikes}</td>
             </tr>
+            <tr>
+              <th>Image link</th>
+              <td>{post.imageLink}</td>
+            </tr>
           </tbody>
         </table>
       </div>

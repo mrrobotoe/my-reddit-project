@@ -1,3 +1,5 @@
+import type { EditPostById, UpdatePostInput } from 'types/graphql'
+
 import {
   Form,
   FormError,
@@ -7,8 +9,6 @@ import {
   NumberField,
   Submit,
 } from '@redwoodjs/forms'
-
-import type { EditPostById, UpdatePostInput } from 'types/graphql'
 import type { RWGqlError } from '@redwoodjs/forms'
 
 type FormPost = NonNullable<EditPostById['post']>
@@ -106,6 +106,23 @@ const PostForm = (props: PostFormProps) => {
         />
 
         <FieldError name="numOfLikes" className="rw-field-error" />
+
+        <Label
+          name="imageLink"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Image link
+        </Label>
+
+        <TextField
+          name="imageLink"
+          defaultValue={props.post?.imageLink}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+
+        <FieldError name="imageLink" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

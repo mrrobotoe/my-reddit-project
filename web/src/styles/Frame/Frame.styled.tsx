@@ -1,9 +1,14 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-const NUMERATOR = 16;
-const DENOMINATOR = 9;
+const NUMERATOR = 16
+const DENOMINATOR = 9
 
-export const Frame = styled.div`
+interface FrameProps {
+  aspectRatio?: string
+}
+
+export const Frame = styled.div<FrameProps>`
+  border-radius: var(--s-3);
   aspect-ratio: ${(props) =>
     props.aspectRatio
       ? `${props.aspectRatio}`
@@ -19,4 +24,4 @@ export const Frame = styled.div`
     block-size: 100%;
     object-fit: cover;
   }
-`;
+`

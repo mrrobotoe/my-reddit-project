@@ -1,4 +1,5 @@
-import { render } from '@redwoodjs/testing/web'
+import { render, screen, within } from '@redwoodjs/testing/web'
+
 import { Loading, Empty, Failure, Success } from './RedditPostsCell'
 import { standard } from './RedditPostsCell.mock'
 
@@ -34,8 +35,18 @@ describe('RedditPostsCell', () => {
   // 2. Add test: expect(screen.getByText('Hello, world')).toBeInTheDocument()
 
   it('renders Success successfully', async () => {
-    expect(() => {
-      render(<Success redditPosts={standard().redditPosts} />)
-    }).not.toThrow()
+    const redditPosts = standard().redditPosts
+    render(<Success redditPosts={redditPosts} />)
+
+    redditPosts.forEach((redditPost) => {
+      const truncatedBody = redditPost.body.substring(0, 10)
+      const matchedBody = screen.getByText(truncatedBody, { exact: false })
+      const ellipsis = within(matchedBody).getByText('...', { exact: false })
+
+      expect(screen.getByText(redditPost.title)).toBeInTheDocument()
+      expect(screen.queryByText(redditPost.body)).not.toBeInTheDocument()
+      expect(matchedBody).toBeInTheDocument()
+      expect(ellipsis).toBeInTheDocument()
+    })
   })
 })

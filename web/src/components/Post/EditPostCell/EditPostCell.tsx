@@ -16,6 +16,7 @@ export const QUERY = gql`
       createdAt
       numOfComments
       numOfLikes
+      imageLink
     }
   }
 `
@@ -28,6 +29,7 @@ const UPDATE_POST_MUTATION = gql`
       createdAt
       numOfComments
       numOfLikes
+      imageLink
     }
   }
 `

@@ -6,6 +6,7 @@ export const schema = gql`
     createdAt: DateTime!
     numOfComments: Int!
     numOfLikes: Int!
+    imageLink: String
   }
 
   type Query {
@@ -18,6 +19,7 @@ export const schema = gql`
     body: String!
     numOfComments: Int!
     numOfLikes: Int!
+    imageLink: String
   }
 
   input UpdatePostInput {
@@ -25,6 +27,7 @@ export const schema = gql`
     body: String
     numOfComments: Int
     numOfLikes: Int
+    imageLink: String
   }
 
   type Mutation {

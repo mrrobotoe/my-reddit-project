@@ -47,6 +47,7 @@ const PostsList = ({ posts }: FindPosts) => {
             <th>Created at</th>
             <th>Num of comments</th>
             <th>Num of likes</th>
+            <th>Image link</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -59,6 +60,7 @@ const PostsList = ({ posts }: FindPosts) => {
               <td>{timeTag(post.createdAt)}</td>
               <td>{truncate(post.numOfComments)}</td>
               <td>{truncate(post.numOfLikes)}</td>
+              <td>{truncate(post.imageLink)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

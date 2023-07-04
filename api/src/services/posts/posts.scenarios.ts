@@ -7,16 +7,16 @@ export const standard = defineScenario<Prisma.PostCreateArgs>({
       data: {
         title: 'String',
         body: 'String',
-        numOfComments: 4701962,
-        numOfLikes: 3793716,
+        numOfComments: 881118,
+        numOfLikes: 4322870,
       },
     },
     two: {
       data: {
         title: 'String',
         body: 'String',
-        numOfComments: 676261,
-        numOfLikes: 5661433,
+        numOfComments: 2765342,
+        numOfLikes: 371736,
       },
     },
   },

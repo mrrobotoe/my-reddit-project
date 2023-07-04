@@ -8062,6 +8062,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/moment@npm:^2.13.0":
+  version: 2.13.0
+  resolution: "@types/moment@npm:2.13.0"
+  dependencies:
+    moment: "*"
+  checksum: b9b668ca4b2584daaa03523a28dd26d542fa4da3de3e976242bbd1568dfc01736142118143a69ed26f62de1b49936ab346579a2ce3979410a1bab229d644cccb
+  languageName: node
+  linkType: hard
+
 "@types/ms@npm:*":
   version: 0.7.31
   resolution: "@types/ms@npm:0.7.31"
@@ -19317,6 +19326,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"moment@npm:*, moment@npm:^2.29.4":
+  version: 2.29.4
+  resolution: "moment@npm:2.29.4"
+  checksum: 844c6f3ce42862ac9467c8ca4f5e48a00750078682cc5bda1bc0e50cc7ca88e2115a0f932d65a06e4a90e26cb78892be9b3ca3dd6546ca2c4d994cebb787fc2b
+  languageName: node
+  linkType: hard
+
 "move-concurrently@npm:^1.0.1":
   version: 1.0.1
   resolution: "move-concurrently@npm:1.0.1"
@@ -25739,7 +25755,9 @@ __metadata:
     "@redwoodjs/forms": 5.4.2
     "@redwoodjs/router": 5.4.2
     "@redwoodjs/web": 5.4.2
+    "@types/moment": ^2.13.0
     humanize-string: 2.1.0
+    moment: ^2.29.4
     prop-types: 15.8.1
     react: 18.2.0
     react-dom: 18.2.0

@@ -27,15 +27,15 @@ describe('posts', () => {
       input: {
         title: 'String',
         body: 'String',
-        numOfComments: 9512533,
-        numOfLikes: 8836715,
+        numOfComments: 1740282,
+        numOfLikes: 247205,
       },
     })
 
     expect(result.title).toEqual('String')
     expect(result.body).toEqual('String')
-    expect(result.numOfComments).toEqual(9512533)
-    expect(result.numOfLikes).toEqual(8836715)
+    expect(result.numOfComments).toEqual(1740282)
+    expect(result.numOfLikes).toEqual(247205)
   })
 
   scenario('updates a post', async (scenario: StandardScenario) => {
