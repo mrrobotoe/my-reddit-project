@@ -1,4 +1,5 @@
 import { render } from '@redwoodjs/testing/web'
+
 import { Loading, Empty, Failure, Success } from './RedditPostCell'
 import { standard } from './RedditPostCell.mock'
 

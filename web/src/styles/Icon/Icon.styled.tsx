@@ -11,7 +11,7 @@ export const Icon = styled.svg<IconProps>`
   ${(props) =>
     props.$withIcon &&
     css`
-      margin-inline-end: var(--space, 0.5em);
+      margin-inline-end: var(--space, 1em);
     `}
 `
 

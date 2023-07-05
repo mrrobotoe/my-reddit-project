@@ -7,8 +7,10 @@ interface CreateCommentArgs {
   input: Prisma.CommentCreateInput
 }
 
-export const comments: QueryResolvers['comments'] = () => {
-  return db.comment.findMany()
+export const comments: QueryResolvers['comments'] = ({
+  postId,
+}: Required<Pick<Prisma.CommentWhereInput, 'postId'>>) => {
+  return db.comment.findMany({ where: { postId } })
 }
 
 export const comment: QueryResolvers['comment'] = ({ id }) => {

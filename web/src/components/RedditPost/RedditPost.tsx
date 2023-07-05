@@ -3,12 +3,17 @@ import type { Post } from 'types/graphql'
 
 import { Link, routes } from '@redwoodjs/router'
 
+import CommentForm from 'src/components/CommentForm'
 import CommentsCell from 'src/components/CommentsCell'
 import { Box } from 'src/styles/Box/Box.styled'
 import { Cluster } from 'src/styles/Cluster/Cluster.styled'
 import { Frame } from 'src/styles/Frame/Frame.styled'
+import { Icon, WithIcon } from 'src/styles/Icon/Icon.styled'
 import { Stack } from 'src/styles/Stack/Stack.styled'
 
+import { CommentArrowDown, CommentArrowUp } from '../Comment/Comment.styled'
+
+import CommentIcon from './commentIcon.svg'
 import { RedditPostContainer, RedditPostWrapper } from './RedditPost.styled'
 
 const truncate = (text: string, length: number) => {
@@ -51,16 +56,36 @@ const RedditPost = ({ redditPost, summary = false }: Props) => {
               </Box>
             )}
           </Stack>
-          <Box>
-            {summary ? truncate(redditPost.body, 100) : redditPost.body}
-          </Box>
-          <Cluster>
-            <Box>Comments: {redditPost.numOfComments}</Box>
-            <Box>Likes: {redditPost.numOfLikes}</Box>
-          </Cluster>
+          <Stack space="var(--s-2)">
+            <Box>
+              {summary ? truncate(redditPost.body, 100) : redditPost.body}
+            </Box>
+            <Cluster>
+              <Box>
+                <WithIcon>
+                  <Icon $withIcon={true}>
+                    <CommentIcon />
+                  </Icon>
+                  {redditPost.numOfComments}
+                </WithIcon>
+              </Box>
+              <Box>
+                <Cluster space="var(--s-1)">
+                  <CommentArrowUp />
+                  {redditPost.numOfLikes}
+                  <CommentArrowDown />
+                </Cluster>
+              </Box>
+            </Cluster>
+            {!summary && (
+              <Box>
+                <CommentForm postId={redditPost.id} />
+              </Box>
+            )}
+          </Stack>
         </RedditPostContainer>
       </RedditPostWrapper>
-      {!summary && <CommentsCell />}
+      {!summary && <CommentsCell postId={redditPost.id} />}
     </Stack>
   )
 }
